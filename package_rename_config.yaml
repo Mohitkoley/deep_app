@@ -1,0 +1,6 @@
+package_rename_config:
+  android:
+    app_name: DeepApp # (String) The display name of the android app
+    package_name: com.liveblog365.mohitkoley.android # (String) The package name of the android app
+    override_old_package: com.example.deepapp # (Optional) (String) Use this to delete the old folder structure of MainActivity or to use the existing code with the new package name
+    lang: kotlin
