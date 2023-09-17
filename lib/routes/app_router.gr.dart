@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ABoutScreen(),
       );
     },
+    AddressRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddressScreen(),
+      );
+    },
     ContactRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -33,16 +39,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomeScreen(),
       );
     },
-    MyDrawer.name: (routeData) {
+    MyDrawerRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MyDrawerScreen(),
+        child: const MyDrawerScreen(),
       );
     },
     NotFoundRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const NotFoundScreen(),
+      );
+    },
+    ProfessionRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfessionScreen(),
       );
     },
   };
@@ -58,6 +70,20 @@ class ABoutRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ABoutRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AddressScreen]
+class AddressRoute extends PageRouteInfo<void> {
+  const AddressRoute({List<PageRouteInfo>? children})
+      : super(
+          AddressRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddressRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -91,15 +117,15 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [MyDrawer]
-class MyDrawer extends PageRouteInfo<void> {
-  const MyDrawer({List<PageRouteInfo>? children})
+/// [MyDrawerScreen]
+class MyDrawerRoute extends PageRouteInfo<void> {
+  const MyDrawerRoute({List<PageRouteInfo>? children})
       : super(
-          MyDrawer.name,
+          MyDrawerRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'MyDrawer';
+  static const String name = 'MyDrawerRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -114,6 +140,20 @@ class NotFoundRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NotFoundRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfessionScreen]
+class ProfessionRoute extends PageRouteInfo<void> {
+  const ProfessionRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfessionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfessionRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

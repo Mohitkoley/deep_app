@@ -1,4 +1,4 @@
-import 'package:deepapp/extensions.dart';
+import 'package:deepapp/utils/extensions.dart';
 import 'package:deepapp/routes/app_router.dart';
 import 'package:deepapp/routes/route_export.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,6 @@
-import 'package:deepapp/routes/app_router.dart';
 import 'package:deepapp/routes/route_export.dart';
-import 'package:deepapp/routes/route_names.dart';
+import 'package:deepapp/routes/subRoutes/sub_app_routes.dart';
+
 import 'package:deepapp/screens/drawer/drawer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -14,24 +14,59 @@ class ABoutScreen extends StatefulWidget {
 }
 
 class _ABoutScreenState extends State<ABoutScreen> {
+  // @override
+  // Widget build(BuildContext context) {
+  //   return AutoTabsRouter.tabBar(
+  //       routes: [
+  //         AddressRoute(),
+  //         ProfessionRoute(),
+  //       ],
+  //       builder: (context, child, controller) {
+  //         final tabsRouter = AutoTabsRouter.of(context);
+  //         return Scaffold(
+  //           appBar: AppBar(title: Text(context.topRoute.path)),
+  //           drawer: MyDrawerScreen(),
+  //           body: Container(
+  //             child: Column(
+  //               mainAxisAlignment: MainAxisAlignment.center,
+  //               children: [],
+  //             ),
+  //           ),
+  //           bottomNavigationBar: BottomNavigationBar(
+  //               currentIndex: tabsRouter.activeIndex,
+  //               onTap: tabsRouter.setActiveIndex,
+  //               items: [
+  //                 BottomNavigationBarItem(
+  //                     icon: Icon(Icons.home), label: "Address"),
+  //                 BottomNavigationBarItem(
+  //                     icon: Icon(Icons.business), label: "Profession"),
+  //               ]),
+  //         );
+  //       });
+  // }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text("About")),
-        drawer: MyDrawerScreen(),
-        body: Container(
-          child: Center(
-              child: ElevatedButton(
-            onPressed: () {
-              context.router.pushAndPopUntil(ContactRoute(),
-                  predicate: ((route) => route.isFirst));
-              // CustomRoute(
-              //     page: ContactRoute.page,
-              //     transitionsBuilder: TransitionsBuilders.slideTop,
-              //     durationInMilliseconds: 500);
-            },
-            child: Text("About"),
-          )),
-        ));
+    return AutoTabsRouter.pageView(
+      routes: [
+        ProfessionRoute(),
+        AddressRoute(),
+      ],
+      animatePageTransition: true,
+      physics: NeverScrollableScrollPhysics(),
+      builder: (context, child, pageController) {
+        final tabsRouter = AutoTabsRouter.of(context);
+        return Scaffold(
+          appBar: AppBar(title: Text(context.topRoute.path)),
+          drawer: MyDrawerScreen(),
+          body: AutoPageView(
+            animatePageTransition: true,
+            physics: NeverScrollableScrollPhysics(),
+            controller: pageController,
+            router: tabsRouter,
+          ),
+        );
+      },
+    );
   }
 }
